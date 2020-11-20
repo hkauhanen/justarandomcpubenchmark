@@ -14,8 +14,8 @@ sims = 100
 
 # Function to carry out one simulation
 function onesim()
-  # Initialize a pool of speakers
-  com = PopDyLan.PoolCommunity()
+  # Initialize a community of speakers
+  com = PopDyLan.ZipfTravellerCommunity(10, 2.0)
 
   # Add speakers
   for i in 1:1000
@@ -23,7 +23,8 @@ function onesim()
   end
 
   # Iterate
-  for t in 1:1_000_000
+  for t in 1:100_000
+    travel!(com)
     rendezvous!(com)
   end
 end
@@ -42,5 +43,5 @@ for rep in 0:reps
   end
 
   # Printout
-  println("pool,$id,$nt,$rep,$tim")
+  println("travel,$id,$nt,$rep,$tim")
 end
