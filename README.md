@@ -5,7 +5,7 @@ A CPU benchmark involving a model of language dynamics (discussed [here](FIXME))
 ```bash
 julia prepare.jl
 bash runtest.sh <MAXTHREADS> <TESTID>
-cat results/* >> results.csv
+cat results/* > results.csv
 ```
 
 Output is (initially) (over)written to `results`. A benchmark will be run using each of 1, ... , `<MAXTHREADS>` threads. `<TESTID>` is a unique test identifier (a string) identifying the system, so that the results of benchmarks run on several different systems can be easily concatenated.
